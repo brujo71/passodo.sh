@@ -1,11 +1,74 @@
 # Usage
-## demo
-Before start type `openssl version`
-
-*passodo.sh* requires OpenSSL from version 1.1.0 or LibreSSL from version 2.9.1
-
-if you prefer to not change system version of openssl, you can specify the corret version configurin an enviroment variable like
+## basic usage example
 ```
-export PASSODO_OPENSSL="/opt/homebrew/Cellar/openssl@1.1/1.1.1t/bin/openssl"
+Last login: Wed Mar 15 14:51:57 on ttys005
+mymac ~ % mkdir testpwd
+mymac ~ % cd testpwd
+mymac testpwd % passodo.sh 
+master pwd: *# insert a master password*
+no repository found in current direcoty
+Initialize a new one? (enter y to process):y
+passodo repository was initialized
+launch again passodo.sh to check the choosen password
+mymac testpwd % ls
+secrets_passodo *# a new directory was vcreated*
+mymac testpwd % passodo.sh *# password is asked ones but script quits so password is inserted a second time to check it*
+master pwd: 
+master password is correct!
+% *# simply type enter to display help*
+unknown command
+syntax: command [entry]
+add entry for entering a single line secret
+addm entry for entering a multi lines secret
+show entry to display a secret (single o multi lines)
+copy entry to copy entry to clipboard without to display it
+del entry to delete an entry
+list to list all entries
+quit to quit
+shortcuts: a,am,s,c,l,q ( no showrcut to del)
+% l *# no entry yet: empty response*
+% a test1 *# add a single line password named test1* 
+insert value for test1: 
+% l
+test1
+% s test1 
+entry ./test1
+my test secret
+% c test1
+content copied to clipboard
+% am test2
+insert reserved information to store in test2 entry and confirm with newline and ctrl+D
+my test 2 secret
+second line
+last line of my test2 secret
+% list
+test1
+test2
+% q
+bye bye
+mymac testpwd % ls secrets_passodo 
+passoso_verification	test1			test2
+mymac testpwd % cat secrets_passodo/test2 
+U2FsdGVkX1+r4iSD6pAz5+aAxtatqa6qsDnc3UHTrEZJWZwKo847AKvl6JJ7pmaH
+SOOQAsDYonreAwElV8t6qcbABTGQTSpgktBtHcp4BL8=
+mymac testpwd % passodo.sh 
+master pwd: 
+bad decrypt
+4364500288:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:crypto/evp/evp_enc.c:612:
+wrong password
+mymac testpwd % passodo.sh
+master pwd: 
+master password is correct!
+% l
+test1
+test2
+% s test2
+entry ./test2
+my test 2 secret
+second line
+last line of my test2 secret
+
+% q
+bye bye
+mymac testpwd %
 ```
-Check exact path by yourself.
