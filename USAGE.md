@@ -1,15 +1,22 @@
 # Usage
-## basic usage example
+#####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [Setup](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md)
+## Basic usage examples
+Create a new directory e launch the script
 ```
-Last login: Wed Mar 15 14:51:57 on ttys005
 mymac ~ % mkdir testpwd
 mymac ~ % cd testpwd
 mymac testpwd % passodo.sh 
-master pwd: *# insert a master password*
+```
+the script always ask for a master password at the beginning. Choose one at first run.
+```
+master pwd: 
 no repository found in current direcoty
 Initialize a new one? (enter y to process):y
 passodo repository was initialized
 launch again passodo.sh to check the choosen password
+```
+the script create a directory named *secrets_passodo* and exits. In this way you should re-type the master password for check
+```
 mymac testpwd % ls
 secrets_passodo *# a new directory was vcreated*
 mymac testpwd % passodo.sh *# password is asked ones but script quits so password is inserted a second time to check it*
