@@ -1,0 +1,176 @@
+#!/bin/bash
+
+set -f
+
+PASSODO_DIRNAME=secrets_passodo
+PASSODO_VERIFICATION_FILE="passoso_verification"
+PASSODO_VERIFICATION_CONTENT="passodo.sh check password"
+
+if [ -z "$PASSODO_OPENSSL" ] ; then
+    OPENSSL=openssl
+else 
+    OPENSSL="$PASSODO_OPENSSL"
+fi
+OPENSSL_ENC="$OPENSSL enc -aes-256-cbc -pbkdf2 -salt -a"
+OPENSSL_DEC="$OPENSSL_ENC -d"
+
+passenc() {
+   $OPENSSL_ENC -k "$mpwd" -out "$1"
+   if [ "$?" != "0" ] ; then
+        >&2 echo "proble with openssl encoding"
+   fi
+}
+
+passdecraw() {
+    $OPENSSL_DEC -k "$mpwd" -in "$1"
+    return $?
+}
+
+passdec() {
+    echo "entry" $1 
+    passdecraw "$1"
+    res=$?
+    echo
+    return $res
+}
+
+init() {
+    mkdir -p "$PASSODO_DIRNAME" 
+    echo -n "$PASSODO_VERIFICATION_CONTENT" | passenc "$PASSODO_DIRNAME/$PASSODO_VERIFICATION_FILE" 
+}
+
+entry2filew() {
+    if [ -z "$1" ] ; then
+        >&2 echo entry not specified
+        return 2
+    fi
+    dnf="./$1"
+    if [ -f "$dnf" ] ; then
+        >&2 echo "entry $1 already exists"
+        return 1 
+    else
+        #>&2 echo entry2filew mkdir $dnf "$(dirname "$dnf")"
+        mkdir -p "$(dirname "$dnf")"
+        echo $dnf
+    fi
+}
+
+addentry() {
+    dnf=$(entry2filew "$1")
+    if [ "$?" == "0" ] ; then
+        echo insert reserved information to store in $1 entry and confirm with newline and ctrl+D
+        passenc "$dnf" 
+    fi
+}
+
+addentryvalue() {
+    dnf=$(entry2filew "$1")
+    if [ "$?" == "0" ] ; then
+        echo -n "$2" | $OPENSSL_ENC -k "$mpwd" -out "$dnf" 
+    fi
+}
+
+entry2filer() {
+    dnf="./$1"
+    if [ -f "$dnf" ] ; then
+        echo -n "$dnf" 
+    else
+        >&2 echo "entry $1 does not exist" 
+        return 1
+    fi
+}
+
+showentry() {
+    dnf=$(entry2filer "$1")
+    if [ "$?" == "0" ]; then
+         passdec "$dnf"      
+    fi
+}
+
+read -p "master pwd: " -s mpwd
+echo 
+
+
+if [ -d "$PASSODO_DIRNAME" ] ; then
+    cd "$PASSODO_DIRNAME"
+    bfn=$(entry2filer $PASSODO_VERIFICATION_FILE)
+    if [ "$?" != "0" ] ; then
+        echo passodo dir has an initialization problem >&2
+        exit 100
+    fi
+    passdec "$bfn" > /dev/null
+    if [ "$?" != "0" ] ; then
+        echo wrong password >&2
+        exit 10
+    fi
+    echo master password is correct!
+else 
+    echo "no repository found in current direcoty"
+    read -p "Initialize a new one? (enter y to process):" y2confir
+    if [ "$y2confir"  != "y" ] ; then 
+        exit 0
+    fi
+    init
+    echo passodo repository was initialized
+    echo launch again passodo.sh to check the choosen password 
+    exit 0
+fi
+
+
+while true; do
+    read -e -t 900 -p "% " cmdall
+    if [ "$?" != "0" ]; then
+        exit 1
+    fi
+    cmdarr=($cmdall)
+    cmd=${cmdarr[0]}
+    entry="${cmdarr[@]:1}"
+    
+    case $cmd in
+        am | addm)
+            addentry "$entry"
+        ;;
+        a | add)
+            read -p "insert value for $entry: " -s value
+            echo
+            addentryvalue "$entry" "$value"
+        ;;
+        s | show)
+            showentry "$entry"
+        ;;
+        c | copy)
+            dnf=$(entry2filer "$entry")
+            if [ "$?" == "0" ]; then
+                passdecraw "$dnf" | pbcopy
+                echo content copied to clipboard
+            fi
+        ;;
+        l | list)
+            find . -type f | cut -b 3- | grep -v $PASSODO_VERIFICATION_FILE
+        ;;
+        del)
+            dnf=$(entry2filer "$entry")
+            if [ "$?" == "0" ]; then
+                rm -f "$dnf"
+                echo removed $dnf
+            fi            
+        ;;
+        q | quit)
+            echo bye bye
+            exit 0
+        ;;
+        *)
+            echo unknown command $cmd
+            echo syntax: command \[entry\] 
+            echo add entry for entering a single line secret
+            echo addm entry for entering a multi lines secret
+            echo show entry to display a secret \(single o multi lines\)
+            echo copy entry to copy entry to clipboard without to display it
+            echo del entry to delete an entry
+            echo list to list all entries
+            echo quit to quit
+            echo shortcuts: a,am,s,c,l,q \( no showrcut to del\)
+        ;;
+    esac
+    
+done
