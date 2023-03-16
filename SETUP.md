@@ -1,4 +1,5 @@
 # prerequisites
+#####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md)
 ## check for openssl
 Before start type `openssl version`
 
