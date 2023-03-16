@@ -32,10 +32,10 @@ addm entry for entering a multi lines secret
 show entry to display a secret (single o multi lines)
 copy entry to copy entry to clipboard without to display it
 del entry to delete an entry
-help to disaply this help
+help to display this help
 list to list all entries
 quit to quit
-shortcuts: a,am,s,c,l,q (no showrcut to del)
+shortcuts: a,am,s,c,l,q (no showrtcut for del)
 % list
 % add test1
 insert value for test1: 
