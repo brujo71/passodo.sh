@@ -160,15 +160,15 @@ while true; do
             exit 0
         ;;
         *)
-            echo unknown command $cmd
             echo syntax: command \[entry\] 
             echo add entry for entering a single line secret
             echo addm entry for entering a multi lines secret
-            echo show entry to display a secret \(single o multi lines\)
             echo copy entry to copy entry to clipboard without to display it
             echo del entry to delete an entry
+            echo help to show this help
             echo list to list all entries
             echo quit to quit
+            echo show entry to display a secret \(single o multi lines\)
             echo shortcuts: a,am,s,c,l,q \( no showrcut to del\)
         ;;
     esac
