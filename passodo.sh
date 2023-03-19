@@ -169,7 +169,7 @@ while true; do
             echo list to list all entries
             echo quit to quit
             echo show entry to display a secret \(single o multi lines\)
-            echo shortcuts: a,am,s,c,l,q \( no showrcut to del\)
+            echo shortcuts: a,am,s,c,l,q \( no shortcut to del\)
         ;;
     esac
     
