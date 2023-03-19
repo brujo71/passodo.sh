@@ -21,7 +21,7 @@
 
 ## Is passodo.sh secure? Can I trust it?
 This is the main objective of the project. *passodo.sh* is secure because it is extremely simple.
-This implies that you can check the security by yourself. *passodo.sh* adopts openssl AES-256-cdc algorithm 
+This implies that you can check the security by yourself reading the code. *passodo.sh* adopts openssl AES-256-cdc algorithm 
 with all the recommended security options. 
 
 You will always be able to decrypt your secrets manually with openssl command, so you don't have to worry about
