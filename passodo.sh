@@ -14,6 +14,20 @@ fi
 OPENSSL_ENC="$OPENSSL enc -aes-256-cbc -pbkdf2 -salt -a"
 OPENSSL_DEC="$OPENSSL_ENC -d"
 
+echo "" | pbcopy 2>/dev/null
+pbc=$?
+if [ "$pbc" == "0" ]; then 
+    CLIPCOPY=pbcopy
+else 
+    echo "" | xclip 2>/dev/null
+    xcl=$?
+    if [ "$xcl" == "0" ]; then 
+        CLIPCOPY=xclip
+    else 
+        CLIPCOPY=""
+    fi
+fi
+
 passenc() {
    $OPENSSL_ENC -k "$mpwd" -out "$1"
    if [ "$?" != "0" ] ; then
@@ -144,10 +158,14 @@ while true; do
             showentry "$entry"
         ;;
         c | copy)
-            dnf=$(entry2filer "$entry")
-            if [ "$?" == "0" ]; then
-                passdecraw "$dnf" | pbcopy
-                echo content copied to clipboard
+            if [ "$CLIPCOPY" == "" ] ; then 
+                echo -e no \"copy to clipboard\" command avaible: install pbcopy on mac or xclip on linux
+            else  
+                dnf=$(entry2filer "$entry")
+                if [ "$?" == "0" ]; then
+                    passdecraw "$dnf" | $CLIPCOPY
+                    echo content copied to clipboard
+                fi
             fi
         ;;
         l | list)
