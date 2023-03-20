@@ -87,6 +87,11 @@ showentry() {
     fi
 }
 
+helpline() {
+    echo "    "$1
+    echo -e \\t\\t$2
+}
+
 read -p "master pwd: " -s mpwd
 echo 
 
@@ -159,17 +164,17 @@ while true; do
             echo bye bye
             exit 0
         ;;
-        *)
-            echo syntax: command \[entry\] 
-            echo add entry for entering a single line secret
-            echo addm entry for entering a multi lines secret
-            echo copy entry to copy entry to clipboard without to display it
-            echo del entry to delete an entry
-            echo help to show this help
-            echo list to list all entries
-            echo quit to quit
-            echo show entry to display a secret \(single o multi lines\)
-            echo shortcuts: a,am,s,c,l,q \( no shortcut to del\)
+        h | help | *)
+            echo "syntax: command [entry]" 
+            helpline "add <entry>" "add a single line secret"
+            helpline "addm <entry>" "add a multi lines secret"
+            helpline "copy <entry>" "copy an entry to clipboard without displaying it"
+            helpline "del <entry>" "delete an entry"
+            helpline "help" "show this help"
+            helpline "list" "list all entries"
+            helpline "quit" "quit (contrl+C is also ok)"
+            helpline "show <entry>" "display an entry (single or multi lines)"
+            echo "shortcuts: a,am,c,h,l,q,s ( no shortcut to del)"
         ;;
     esac
     
