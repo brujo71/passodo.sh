@@ -1,15 +1,15 @@
 # prerequisites
 #####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md)
 ## check for openssl
-Before start type `openssl version`
+Before running passodo.sh, please type openssl version to check the version of OpenSSL installed on your system.
 
-*passodo.sh* requires OpenSSL from version 1.1.0 or LibreSSL from version 2.9.1
+passodo.sh requires OpenSSL version 1.1.0 or higher, or LibreSSL version 2.9.1 or higher.
 
-if you prefer to not change system version of openssl, you can specify the corret version configuring an enviroment variable like
+See below how to install / upgrade openssl on your system. If you prefer not to change the system version of OpenSSL, you can specify the correct version by configuring an environment variable. For example: 
 ```
 export PASSODO_OPENSSL="/opt/homebrew/Cellar/openssl@1.1/1.1.1t/bin/openssl"
 ```
-Check exact path by yourself.
+(Be sure to check the exact path on your system.)
 
 ### how to install / upgrade openssl on MAC OS
 see [How to upgrade OpenSSL in OS X?](https://apple.stackexchange.com/questions/126830/how-to-upgrade-openssl-in-os-x)
