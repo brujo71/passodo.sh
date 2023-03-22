@@ -3,7 +3,7 @@
 ## check for openssl
 Before running passodo.sh, please type openssl version to check the version of OpenSSL installed on your system.
 
-passodo.sh requires OpenSSL version 1.1.0 or higher, or LibreSSL version 2.9.1 or higher.
+**passodo.sh requires OpenSSL version 1.1.0 or higher, or LibreSSL version 2.9.1 or higher**.
 
 See below how to install / upgrade openssl on your system. If you prefer not to change the system version of OpenSSL, you can specify the correct version by configuring an environment variable. For example: 
 ```
