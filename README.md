@@ -39,7 +39,13 @@ This is free software with no warranty: use at your own risk.
 ## Why another password manager?
 - Recently, some technical sites spoke about password managers that were hacked.
 - There can be a need to store passwords directly on a server with no graphical interface.
-- Other password managers either need installation, have security issues, or have dependencies.
+- Other password managers I found either need installation, have security issues, or have dependencies.
+
+## Requirements
+- passodo.sh requires OpenSSL version 1.1.0 or higher, or LibreSSL version 2.9.1 or higher. 
+- to use optional "copy to clipboard" function pbcopy on Mac or xclip on Linux should work
+
+See [setup](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md) for more information
 
 ## To Do
 - More tests on macOS (especially old versions)
