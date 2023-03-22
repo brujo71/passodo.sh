@@ -27,15 +27,23 @@ master pwd:
 master password is correct!
 % help
 syntax: command [entry]
-add entry for entering a single line secret
-addm entry for entering a multi lines secret
-show entry to display a secret (single o multi lines)
-copy entry to copy entry to clipboard without to display it
-del entry to delete an entry
-help to display this help
-list to list all entries
-quit to quit
-shortcuts: a,am,s,c,l,q (no showrtcut for del)
+    add <entry>
+		add a single line secret
+    addm <entry>
+		add a multi lines secret
+    copy <entry>
+		copy an entry to clipboard without displaying it
+    del <entry>
+		delete an entry
+    help
+		show this help
+    list
+		list all entries
+    quit
+		quit (contrl+C is also ok)
+    show <entry>
+		display an entry (single or multi lines)
+shortcuts: a,am,c,h,l,q,s ( no shortcut to del)
 % list
 % add test1
 insert value for test1: 
