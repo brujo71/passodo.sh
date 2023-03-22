@@ -1,4 +1,4 @@
-# prerequisites
+# Requirements and Setup
 #####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md)
 ## check for openssl
 Before running passodo.sh, please type openssl version to check the version of OpenSSL installed on your system.
