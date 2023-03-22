@@ -1,5 +1,5 @@
 # Usage
-#####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [Setup](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md)
+#####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [SETUP](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md)
 ## Basic usage examples
 Create a new directory and launch the script
 ```
