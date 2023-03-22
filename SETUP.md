@@ -44,4 +44,10 @@ if you installed in a PATH dir or
 ```
 if you copied it in current direcotory
 
+Following steps on [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md)
+
+## "copy to clipboard" function
+"copy to clipboard" is an optional function that need `xclip` on Linux or `pbcopy` on Mac OS.
+
+*more informations coming soon...*
 
