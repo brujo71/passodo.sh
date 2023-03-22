@@ -2,7 +2,7 @@
 ## What is passodo.sh for?
 *passodo.sh* is a command line password manager that stores passwords, secrets, or other texts in encrypted files using a master password to secure them. It is intended to be multiplatform, self-contained, and very simple to install and use. It can be used on any OS with bash and openssl installed (e.g., Linux, macOS, Windows with cygwin) with no other dependencies. *passodo.sh* can easily manage many tens of passwords that can be organized into folders.
 
-##### [Setup](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md) - [Usage](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md) 
+##### [SETUP](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md) 
 
 ## What is not passodo.sh for?
 *passodo.sh* is not intended to store other data than text. It is not intended to grow with complex or exotic functions, nor to be the backend of a graphical interface. It is also not intended to grow with diffused utility not so useful (e.g., strong password check). *passodo.sh* is not suited for thousands of entries. There is no backup or cloud function included.
@@ -45,7 +45,7 @@ This is free software with no warranty: use at your own risk.
 - passodo.sh requires OpenSSL version 1.1.0 or higher, or LibreSSL version 2.9.1 or higher. 
 - to use optional "copy to clipboard" function pbcopy on Mac or xclip on Linux should work
 
-See [setup](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md) for more information
+See [SETUP](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md) for more information
 
 ## To Do
 - More tests on macOS (especially old versions)
