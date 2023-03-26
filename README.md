@@ -5,7 +5,7 @@
 ##### [SETUP](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md) 
 
 ## What is not passodo.sh for?
-*passodo.sh* is not intended to store other data than text. It is not intended to grow with complex or exotic functions, nor to be the backend of a graphical interface. It is also not intended to grow with diffused utility not so useful (e.g., strong password check). *passodo.sh* is not suited for thousands of entries. There is no backup or cloud function included.
+*passodo.sh* is not intended to store other data than text. It is not intended to grow with complex or exotic functions, nor to be the backend of a graphical interface. It is also not intended to be expanded with common but not particularly useful utilities (e.g. strong password check.). *passodo.sh* is not suited for thousands of entries. There is no backup or cloud function included but, of course, you can store the passodo.sh utility and its passwords folders on any local mirror of a cloud storage system like OneDrive, DropBox, Google Drive etc.
 
 ## Key feature
 - Open source GNU GPL-3.0
@@ -28,8 +28,8 @@ You will always be able to decrypt your secrets manually with openssl command, s
 losing your secrets if this project will be abandoned or will not work anymore.
 
 ## Who it is addressed to?
-Everyone with a minimum knowledge about shells would be able to use this program, 
-but it is addressed especially to technicians, programmers, and sysadmins.
+Anyone with a basic knowledge of shell scripting languages would be able to use this program, 
+but it is particularly meant for IT technicians, programmers, and sysadmins. 
 
 ## Warning
 **If you lose the master password, no one will be able to help you**
