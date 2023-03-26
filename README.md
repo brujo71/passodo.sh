@@ -37,9 +37,10 @@ but it is particularly meant for IT technicians, programmers, and sysadmins.
 This is free software with no warranty: use at your own risk.
 
 ## Why another password manager?
-- Recently, some technical sites spoke about password managers that were hacked.
-- There can be a need to store passwords directly on a server with no graphical interface.
-- Other password managers I found either need installation, have security issues, or have dependencies.
+- Recently, some technical sites reported about password managers being hacked.
+- You might want to store encrypted passwords directly on a server with no graphical interface.
+- Many password managers either need an installation, have security issues, 
+  or have dependencies that make them more challenging to use/port across different platforms.
 
 ## Requirements
 - passodo.sh requires OpenSSL version 1.1.0 or higher, or LibreSSL version 2.9.1 or higher. 
