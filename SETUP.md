@@ -29,10 +29,10 @@ chmod u+x [path/to/localdir]/passodo.sh
 export PATH=$PATH:[path/to/localdir]
 ```
 ### solution 2
-Use git or downlaod passodo.sh in another way and then copy it in a folder in your PATH. Remenper to check execution permission.
+Use git or downlaod passodo.sh in another way and then copy it in a folder in your PATH. Remember to check execution permission.
 
 ### solution 3
-Use git or downlaod passodo.sh in another way and then copy it in the folder where you think to create de secret repository. Remenper to check execution permission.
+Use git or downlaod passodo.sh in another way and then copy it in the folder where you think to create the secret repository. Remember to check execution permission.
 ## first run
 Go to the direcory in which you would store the secrets repository. The type
 ```
