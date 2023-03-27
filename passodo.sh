@@ -3,7 +3,7 @@
 set -f
 
 PASSODO_DIRNAME=secrets_passodo
-PASSODO_VERIFICATION_FILE="passoso_verification"
+PASSODO_VERIFICATION_FILE="passodo_verification"
 PASSODO_VERIFICATION_CONTENT="passodo.sh check password"
 
 if [ -z "$PASSODO_OPENSSL" ] ; then
@@ -112,6 +112,9 @@ echo
 
 if [ -d "$PASSODO_DIRNAME" ] ; then
     cd "$PASSODO_DIRNAME"
+    if [ -f passoso_verification ] ; then
+        mv passoso_verification $PASSODO_VERIFICATION_FILE
+    fi
     bfn=$(entry2filer $PASSODO_VERIFICATION_FILE)
     if [ "$?" != "0" ] ; then
         echo passodo dir has an initialization problem >&2
