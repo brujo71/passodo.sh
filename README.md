@@ -49,9 +49,11 @@ This is free software with no warranty: use at your own risk.
 See [SETUP](https://github.com/brujo71/passodo.sh/blob/main/SETUP.md) for more information
 
 ## Contatti
-[passodo.sh official home page](https://github.com/brujo71/passodo.sh)
+[passodo.sh github official home page](https://github.com/brujo71/passodo.sh)
 
 [author Andrea Sodomaco](https://www.sodomaco.it/)
+
+For question, suggestion, help or bug please [fill an issue in github](https://github.com/brujo71/passodo.sh)
 
 ## To Do
 - More tests on macOS (especially old versions)
