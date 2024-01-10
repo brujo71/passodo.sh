@@ -1,7 +1,7 @@
 # Docker quick start
 #####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md)
 ## run with docker
-First of all choose the directory in with save encripted passwords or create it.
+First of all choose the directory where encripted secrets are stored or create it.
 ```
 % mkdir /tmp/mysecrets
 ```
@@ -34,9 +34,9 @@ Initialize a new one? (enter y to process):y
 passodo repository was initialized
 launch again passodo.sh to check the choosen password
 ```
-At this point lunch again passodo on docker with the same previous command
+Lunch again passodo on docker with the same previous command
 ```
 % docker container run -v /tmp/mysecrets:/var/secrets -it brujo71/passodo-alpine 
 ```
 and type again the master password you choose.
-Now you can use a new encrypted empty repositori and began to add new secrets that will be saber in `/tmp/mysecrets`. See [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md) for more details.
+Now you can use a new encrypted empty repositori and began to add new secrets that will be stored in `/tmp/mysecrets`. See [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md) for more details.
