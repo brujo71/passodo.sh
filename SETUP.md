@@ -1,6 +1,9 @@
 # Requirements and Setup
 #####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md)
-## check for openssl
+## check for openssl - [DOCKER](https://github.com/brujo71/passodo.sh/blob/main/DOCKER.md)
+
+The simplest way to use passodo.sh is in a docker container. See - [DOCKER](https://github.com/brujo71/passodo.sh/blob/main/DOCKER.md)
+
 Before running passodo.sh, please type openssl version to check the version of OpenSSL installed on your system.
 
 **passodo.sh requires OpenSSL version 1.1.0 or higher, or LibreSSL version 2.9.1 or higher**.
