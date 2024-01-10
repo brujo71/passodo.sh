@@ -1,6 +1,5 @@
 # Requirements and Setup
-#####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md)
-- [DOCKER](https://github.com/brujo71/passodo.sh/blob/main/DOCKER.md)
+#####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md) - [DOCKER](https://github.com/brujo71/passodo.sh/blob/main/DOCKER.md)
 
 ## check for openssl 
 
