@@ -1,5 +1,5 @@
 # Docker quick start
-#####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md)
+#####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md) - [DOCKER](https://github.com/brujo71/passodo.sh/blob/main/DOCKER.md)
 ## run with docker
 First of all choose the directory where encripted secrets are stored or create it.
 ```
