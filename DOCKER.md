@@ -7,7 +7,6 @@ First of all choose the directory where encripted secrets are stored or create i
 ```
 then symply run passodo with docker using then -v option to specify the working directory on your host system.
 ```
-% mkdir /tmp/mysecrets
 % docker container run -v /tmp/mysecrets:/var/secrets -it brujo71/passodo-alpine 
 ```
 ## first run
