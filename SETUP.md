@@ -1,6 +1,8 @@
 # Requirements and Setup
 #####  [README](https://github.com/brujo71/passodo.sh/blob/main/README.md) - [USAGE](https://github.com/brujo71/passodo.sh/blob/main/USAGE.md)
-## check for openssl - [DOCKER](https://github.com/brujo71/passodo.sh/blob/main/DOCKER.md)
+- [DOCKER](https://github.com/brujo71/passodo.sh/blob/main/DOCKER.md)
+
+## check for openssl 
 
 The simplest way to use passodo.sh is in a docker container. See - [DOCKER](https://github.com/brujo71/passodo.sh/blob/main/DOCKER.md)
 
