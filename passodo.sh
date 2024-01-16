@@ -172,7 +172,7 @@ while true; do
             fi
         ;;
         l | list)
-            find . -type f | cut -b 3- | grep -v $PASSODO_VERIFICATION_FILE
+            find -s . -type f | cut -b 3- | grep -v $PASSODO_VERIFICATION_FILE
         ;;
         del)
             dnf=$(entry2filer "$entry")
