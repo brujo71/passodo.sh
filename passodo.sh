@@ -127,8 +127,8 @@ if [ -d "$PASSODO_DIRNAME" ] ; then
     fi
     echo master password is correct!
 else 
-    echo "no repository found in current direcoty"
-    read -p "Initialize a new one? (enter y to process):" y2confir
+    echo "no repository found in current directory"
+    read -p "Initialize a new one? (enter y to proceed):" y2confir
     if [ "$y2confir"  != "y" ] ; then 
         exit 0
     fi
