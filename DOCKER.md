@@ -8,6 +8,7 @@ Simply run it with docker
 ## first run
 At the first run the following messages will be displayed
 ```
+% mkdir mysecrets
 % docker container run -v mysecrets:/var/secrets  -it --rm andreaxlbit/passodo.sh
 Unable to find image 'ndreaxlbit/passodo.sh:latest' locally
 latest: Pulling from ndreaxlbit/passodo.sh
