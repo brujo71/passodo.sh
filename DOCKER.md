@@ -6,7 +6,7 @@ Simply run it with docker
 % docker container run -v mysecrets:/var/secrets -it --rm andreaxlbit/passodo.sh
 ```
 ## first run
-At the first run the following messages will be displayed
+At the first run create a directory to store your encrypted passwords, ther run the docker container
 ```
 % mkdir mysecrets
 % docker container run -v mysecrets:/var/secrets  -it --rm andreaxlbit/passodo.sh
