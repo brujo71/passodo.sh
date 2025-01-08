@@ -2,6 +2,7 @@
 
 set -f
 
+
 PASSODO_DIRNAME=secrets_passodo
 PASSODO_VERIFICATION_FILE="passodo_verification"
 PASSODO_VERIFICATION_CONTENT="passodo.sh check password"
@@ -31,7 +32,7 @@ fi
 passenc() {
    $OPENSSL_ENC -k "$mpwd" -out "$1"
    if [ "$?" != "0" ] ; then
-        >&2 echo "proble with openssl encoding"
+        >&2 echo "problem with openssl encoding"
    fi
 }
 
@@ -63,7 +64,6 @@ entry2filew() {
         >&2 echo "entry $1 already exists"
         return 1 
     else
-        #>&2 echo entry2filew mkdir $dnf "$(dirname "$dnf")"
         mkdir -p "$(dirname "$dnf")"
         echo $dnf
     fi
@@ -74,6 +74,13 @@ addentry() {
     if [ "$?" == "0" ] ; then
         echo insert reserved information to store in $1 entry and confirm with newline and ctrl+D
         passenc "$dnf" 
+    fi
+}
+
+addentryfile() {
+    dnf=$(entry2filew "$1")
+    if [ "$?" == "0" ] ; then
+        cat $2 | passenc "$dnf" 
     fi
 }
 
@@ -146,11 +153,19 @@ while true; do
     fi
     cmdarr=($cmdall)
     cmd=${cmdarr[0]}
-    entry="${cmdarr[@]:1}"
+    entry="${cmdarr[1]}"
     
     case $cmd in
         am | addm)
             addentry "$entry"
+        ;;
+        af | addfile)
+            infile=${cmdarr[2]}
+            if [ -f "$infile" ]; then
+                addentryfile "$entry" ${cmdarr[2]}
+            else
+                echo ERROR: file \"$infile\" does not exist
+            fi
         ;;
         a | add)
             read -p "insert value for $entry: " -s value
@@ -159,6 +174,19 @@ while true; do
         ;;
         s | show)
             showentry "$entry"
+        ;;
+        sf | savefile)
+            
+            outfile=${cmdarr[2]}
+            if [ -f "$outfile" ]; then
+                echo ERROR: file \"$outfile\" already present
+            else
+                dnf=$(entry2filer "$entry")
+                if [ "$?" == "0" ]; then
+                    passdecraw "$dnf" > $outfile    
+                fi
+                echo saved to file \"$outfile\"
+            fi        
         ;;
         c | copy)
             if [ "$CLIPCOPY" == "" ] ; then 
