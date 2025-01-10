@@ -176,7 +176,6 @@ while true; do
             showentry "$entry"
         ;;
         sf | savefile)
-            
             outfile=${cmdarr[2]}
             if [ -f "$outfile" ]; then
                 echo ERROR: file \"$outfile\" already present
@@ -200,7 +199,7 @@ while true; do
             fi
         ;;
         l | list)
-            find . -type f | cut -b 3- | grep -v $PASSODO_VERIFICATION_FILE | sort
+            find . -type f | cut -b 3- | grep -v $PASSODO_VERIFICATION_FILE | grep "$entry" | sort
         ;;
         del)
             dnf=$(entry2filer "$entry")
